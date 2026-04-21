@@ -1,0 +1,39 @@
+[project]
+name = "agents-exercise"
+version = "0.1.0"
+description = "Ejercicio práctico de agentes con LangGraph"
+readme = "README.md"
+authors = [
+    { name = "Marcos", email = "marcosmunozgonzalez95@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain>=0.1.0",
+    "langchain-google-genai>=0.0.10",
+    "google-generativeai>=0.3.0",
+    "pydantic-settings>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.1,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I"]
